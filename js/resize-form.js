@@ -17,9 +17,23 @@
 
   resizeForm.onsubmit = function(evt) {
     evt.preventDefault();
-    filterForm.elements['filter-image-src'] = previewImage.src;
 
-    resizeForm.classList.add('invisible');
-    filterForm.classList.remove('invisible');
+    var top = parseInt(resizeForm['resize-y'].value, 10);
+    var left = parseInt(resizeForm['resize-x'].value, 10);
+    var side = parseInt(resizeForm['resize-size'].value, 10);
+    var photoWidth = previewImage.naturalWidth;
+    var photoHeight = previewImage.naturalHeight;
+
+    if (
+      top >= 0 &&
+      left >= 0 &&
+      side >= 1 &&
+      (top + side) <= photoHeight &&
+      (left + side) <= photoWidth
+      ) {
+      filterForm.elements['filter-image-src'] = previewImage.src;
+      resizeForm.classList.add('invisible');
+      filterForm.classList.remove('invisible');
+    }
   };
 })();
