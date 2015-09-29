@@ -9,6 +9,9 @@
 
   var filterMap;
 
+  var myBirthday = new Date(1988, 8, 13);
+  var cookiesEnd = new Date(Date.now() + (Date.now() - Date.parse(myBirthday)));
+
   function setFilter() {
     if (!filterMap) {
       filterMap = {
@@ -19,6 +22,7 @@
     }
 
     previewImage.className = 'filter-image-preview' + ' ' + filterMap[selectedFilter.value];
+    docCookies.setItem('selected-filter', selectedFilter.value, cookiesEnd);
   };
 
   for (var i = 0, l = selectedFilter.length; i < l; i++) {
@@ -42,5 +46,6 @@
     filterForm.classList.add('invisible');
   }
 
+  selectedFilter.value = docCookies.getItem('selected-filter');
   setFilter();
 })();

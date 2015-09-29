@@ -11,7 +11,7 @@
     "url": "git+https://github.com/vafelman/46465-keksogram.git"
   },
   "author": "",
-  "private": true,
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/vafelman/46465-keksogram/issues"
   },
