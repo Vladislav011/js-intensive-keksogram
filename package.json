@@ -1,0 +1,22 @@
+{
+  "name": "46465-keksogram",
+  "version": "1.0.0",
+  "description": "* Студент: [Таня Прошунина](https://htmlacademy.ru/profile/id46465).",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node_modules/.bin/http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vafelman/46465-keksogram.git"
+  },
+  "author": "",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/vafelman/46465-keksogram/issues"
+  },
+  "homepage": "https://github.com/vafelman/46465-keksogram#readme",
+  "devDependencies": {
+    "http-server": "^0.8.5"
+  }
+}
