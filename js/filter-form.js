@@ -9,6 +9,16 @@
 
   var filterMap;
 
+  var today = new Date().getTime();
+  var myBirthday = new Date();
+  myBirthday.setMonth(8);
+  myBirthday.setDate(13);
+  if (new Date() < myBirthday) {
+    myBirthday.setFullYear(myBirthday.getFullYear() - 1);
+  }
+  var daysSinceBirthday = today - myBirthday.getTime();
+  var cookiesEnd = new Date(today + daysSinceBirthday);
+
   function setFilter() {
     if (!filterMap) {
       filterMap = {
@@ -19,6 +29,7 @@
     }
 
     previewImage.className = 'filter-image-preview' + ' ' + filterMap[selectedFilter.value];
+    docCookies.setItem('selected-filter', selectedFilter.value, cookiesEnd);
   };
 
   for (var i = 0, l = selectedFilter.length; i < l; i++) {
@@ -42,5 +53,6 @@
     filterForm.classList.add('invisible');
   }
 
+  selectedFilter.value = docCookies.getItem('selected-filter');
   setFilter();
 })();
