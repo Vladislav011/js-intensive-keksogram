@@ -9,8 +9,15 @@
 
   var filterMap;
 
-  var myBirthday = new Date(1988, 8, 13);
-  var cookiesEnd = new Date(Date.now() + (Date.now() - Date.parse(myBirthday)));
+  var today = new Date().getTime();
+  var myBirthday = new Date();
+  myBirthday.setMonth(8);
+  myBirthday.setDate(13);
+  if (new Date() < myBirthday) {
+    myBirthday.setFullYear(myBirthday.getFullYear() - 1);
+  }
+  var daysSinceBirthday = today - myBirthday.getTime();
+  var cookiesEnd = new Date(today + daysSinceBirthday);
 
   function setFilter() {
     if (!filterMap) {
