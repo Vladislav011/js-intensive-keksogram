@@ -15,9 +15,7 @@
     uploadForm.classList.remove('invisible');
   };
 
-  resizeForm.onsubmit = function(evt) {
-    evt.preventDefault();
-
+  var validate = function() {
     var top = parseInt(resizeForm['resize-y'].value, 10);
     var left = parseInt(resizeForm['resize-x'].value, 10);
     var side = parseInt(resizeForm['resize-size'].value, 10);
@@ -30,10 +28,19 @@
       side >= 1 &&
       (top + side) <= photoHeight &&
       (left + side) <= photoWidth
-      ) {
-      filterForm.elements['filter-image-src'] = previewImage.src;
-      resizeForm.classList.add('invisible');
-      filterForm.classList.remove('invisible');
+    ) {
+      return true;
     }
+    return false;
+  };
+
+  resizeForm.onsubmit = function(evt) {
+    evt.preventDefault();
+
+    if (!validate()) {return;}
+
+    filterForm.elements['filter-image-src'] = previewImage.src;
+    resizeForm.classList.add('invisible');
+    filterForm.classList.remove('invisible');
   };
 })();
