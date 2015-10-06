@@ -40,4 +40,6 @@
 
     picturesContainer.appendChild(picturesFragment);
   });
+
+  filters.classList.remove('hidden');
 })();
