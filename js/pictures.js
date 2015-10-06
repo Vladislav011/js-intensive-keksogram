@@ -25,9 +25,11 @@
       }, IMAGE_FAILURE_TIMEOUT);
 
       photo.onload = function() {
-        newPictureElement.querySelector('img').setAttribute('src', picture['url']);
-        newPictureElement.querySelector('img').width = 182;
-        newPictureElement.querySelector('img').height = 182;
+        var imgElement = document.createElement('img');
+        imgElement.setAttribute('src', picture['url']);
+        imgElement.setAttribute('width', 182);
+        imgElement.setAttribute('height', 182);
+        newPictureElement.replaceChild(imgElement, newPictureElement.querySelector('img'));
         clearTimeout(imageLoadTimeout);
       }
 
