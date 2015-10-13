@@ -11,7 +11,7 @@
   pictures.forEach(function(picture, i) {
     var newPictureElement = pictureTemplate.content.children[0].cloneNode(true);
 
-    newPictureElement.querySelector('.picture-likes').textContent = picture['llikes'];
+    newPictureElement.querySelector('.picture-likes').textContent = picture['likes'];
     newPictureElement.querySelector('.picture-comments').textContent = picture['comments'];
 
     picturesFragment.appendChild(newPictureElement);
