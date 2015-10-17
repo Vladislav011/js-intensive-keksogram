@@ -64,7 +64,7 @@
   function loadPicturesData(callback) {
     var xhr = new XMLHttpRequest();
     xhr.timeout = REQUEST_FAILURE_TIMEOUT;
-    xhr.open('get', 'data/pictures1.json', true);
+    xhr.open('get', 'data/pictures.json', true);
     xhr.send();
 
     xhr.onreadystatechange = function(evt) {
