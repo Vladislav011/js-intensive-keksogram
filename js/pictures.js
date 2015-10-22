@@ -65,7 +65,6 @@
     var xhr = new XMLHttpRequest();
     xhr.timeout = REQUEST_FAILURE_TIMEOUT;
     xhr.open('get', 'data/pictures.json', true);
-    xhr.send();
 
     xhr.onreadystatechange = function(evt) {
       var loadedXhr = evt.target;
@@ -95,6 +94,8 @@
     xhr.ontimeout = function() {
       showLoadFailure();
     };
+
+    xhr.send();
   }
 
   function filterPictures(pictures, filterID) {
