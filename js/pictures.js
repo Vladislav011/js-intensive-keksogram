@@ -103,29 +103,13 @@
     switch (filterID) {
       case 'filter-new':
         filteredPictures = filteredPictures.sort(function(a, b) {
-          if (a.date > b.date) {
-            return -1;
-          }
-          if (a.date < b.date) {
-            return 1;
-          }
-          if (a.date === b.date) {
-            return 0;
-          }
+          return new Date(b.date) - new Date(a.date);
         });
         break;
 
       case 'filter-discussed':
         filteredPictures = filteredPictures.sort(function(a, b) {
-          if (a.comments > b.comments) {
-            return -1;
-          }
-          if (a.comments < b.comments) {
-            return 1;
-          }
-          if (a.comments === b.comments) {
-            return 0;
-          }
+          return b.comments - a.comments;
         });
         break;
 
