@@ -1,3 +1,5 @@
+'use strict';
+
 (function() {
   var uploadForm = document.forms['upload-select-image'];
   var resizeForm = document.forms['upload-resize'];
@@ -15,7 +17,7 @@
     uploadForm.classList.remove('invisible');
   };
 
-  var validate = function() {
+  function validate() {
     var top = parseInt(resizeForm['resize-y'].value, 10);
     var left = parseInt(resizeForm['resize-x'].value, 10);
     var side = parseInt(resizeForm['resize-size'].value, 10);
@@ -32,12 +34,14 @@
       return true;
     }
     return false;
-  };
+  }
 
   resizeForm.onsubmit = function(evt) {
     evt.preventDefault();
 
-    if (!validate()) {return;}
+    if (!validate()) {
+      return;
+    }
 
     filterForm.elements['filter-image-src'] = previewImage.src;
     resizeForm.classList.add('invisible');
