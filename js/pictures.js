@@ -14,7 +14,7 @@
 
   var REQUEST_FAILURE_TIMEOUT = 10000;
 
-  var pictures;
+  var allPictures;
 
   var picturesContainer = document.querySelector('.pictures');
   var pictureTemplate = document.getElementById('picture-template');
@@ -122,7 +122,7 @@
   }
 
   function setActiveFilter(filterID) {
-    var filteredPictures = filterPictures(pictures, filterID);
+    var filteredPictures = filterPictures(allPictures, filterID);
     renderPictures(filteredPictures);
   }
 
@@ -139,7 +139,7 @@
   initFilters();
 
   loadPicturesData(function(loadedPictures) {
-    pictures = loadedPictures;
+    allPictures = loadedPictures;
     setActiveFilter('filter-popular');
   });
 
